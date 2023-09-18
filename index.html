@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Price Slider</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="wrapper">
+      <label for="priceSlider" class="priceSlider">
+        <input type="range" min="0" max="100" class="inp" />
+        <span>10</span>
+        <span>100</span>
+      </label>
+      <div class="prices">
+        <div class="price disabled part1">
+          <h2>Price Pack 1</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus
+            consectetur esse veritatis ut ea ducimus a fugit beatae porro
+            reprehenderit, voluptate quo quas optio nulla? Aspernatur tempore
+            pariatur nesciunt? Qui.
+          </p>
+          <h3>$999 <small>/yr</small></h3>
+          <button>Get this Pack</button>
+        </div>
+        <div class="price disabled part2">
+          <h2>Price Pack 2</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus
+            consectetur esse veritatis ut ea ducimus a fugit beatae porro
+            reprehenderit, voluptate quo quas optio nulla? Aspernatur tempore
+            pariatur nesciunt? Qui.
+          </p>
+          <h3>$499<small>/yr</small></h3>
+          <button>Get this Pack</button>
+        </div>
+        <div class="price part3">
+          <h2>Price Pack 3</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus
+            consectetur esse veritatis ut ea ducimus a fugit beatae porro
+            reprehenderit, voluptate quo quas optio nulla? Aspernatur tempore
+            pariatur nesciunt? Qui.
+          </p>
+          <h3>$299 <small>/yr</small></h3>
+          <button>Get this Pack</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      const price1 = document.querySelector(".part1");
+      const price2 = document.querySelector(".part2");
+      const price3 = document.querySelector(".part3");
+      const slider = document.querySelector(".inp");
+      // console.log(value)
+      slider.oninput = function () {
+        let valueinp = this.value;
+        console.log(valueinp);
+        if (valueinp < 10) {
+          price1.classList.remove("disabled");
+          price2.classList.add("disabled");
+          price3.classList.add("disabled");
+        } else if (valueinp > 10 && valueinp < 50) {
+          price1.classList.add("disabled");
+          price2.classList.remove("disabled");
+          price3.classList.add("disabled");
+        } else if (valueinp > 50) {
+          price1.classList.add("disabled");
+          price2.classList.add("disabled");
+          price3.classList.remove("disabled");
+        }
+      };
+    </script>
+    <!-- <script src="scripts.js"></script> -->
+  </body>
+</html>
